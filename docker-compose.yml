@@ -37,7 +37,10 @@ services:
       context: ./php-fpm
       args:
         - PHP_VERSION=${PHP_VERSION}
-        - PHP_FPM_XDEBUG_INI=${PHP_FPM_XDEBUG_INI}
+        - XDEBUG_ENABLE=${XDEBUG_ENABLE}
+        - XDEBUG_HOST=${XDEBUG_HOST}
+        - XDEBUG_PORT=${XDEBUG_PORT}
+        - XDEBUG_IDEKEY=${XDEBUG_IDEKEY}
     image: ${COMPOSE_PROJECT_NAME}_fpm:latest
     volumes:
       - ${PROJECT_PATH}:/var/htdocs
