@@ -12,7 +12,7 @@ services:
         - PHP_VERSION=${PHP_VERSION}
     image: ${COMPOSE_PROJECT_NAME}_workspace:latest
     volumes:
-      - ../:/var/htdocs
+      - ${PROJECT_PATH}:/var/htdocs
     tty: true
     networks:
       - app
