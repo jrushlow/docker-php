@@ -22,7 +22,10 @@ services:
       context: ./php-cli
       args:
         - PHP_VERSION=${PHP_VERSION}
-        - PHP_CLI_XDEBUG_INI=${PHP_CLI_XDEBUG_INI}
+        - XDEBUG_ENABLE=${XDEBUG_ENABLE}
+        - XDEBUG_HOST=${XDEBUG_HOST}
+        - XDEBUG_PORT=${XDEBUG_PORT}
+        - XDEBUG_IDEKEY=${XDEBUG_IDEKEY}
     image: ${COMPOSE_PROJECT_NAME}_cli:latest
     volumes:
       - ${PROJECT_PATH}:/var/htdocs
