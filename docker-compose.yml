@@ -40,3 +40,19 @@ services:
       - ${PROJECT_PATH}:/var/htdocs
     networks:
       - app
+
+  nginx:
+    build:
+      context: ./nginx
+    image: ${COMPOSE_PROJECT_NAME}_nginx:latest
+    volumes:
+      - ${PROJECT_PATH}/public:/var/htdocs/public
+      - ./nginx/params:/etc/nginx/params
+      - ./nginx/sites:/etc/nginx/sites-available
+    depends_on:
+      - php-fpm
+    networks:
+      - app
+    ports:
+      - "80:80"
+      - "443:443"
